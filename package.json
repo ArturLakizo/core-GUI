@@ -1,5 +1,5 @@
 {
-    "name": "hello-world",
+    "name": "core-GUI",
     "version": "1.0.0",
     "main": "main.js",
     "devDependencies": {
@@ -9,6 +9,8 @@
         "start": "electron ."
     },
     "dependencies": {
-        "@cityofzion/neon-js": "^3.9.1"
+        "@cityofzion/neon-js": "^3.9.1",
+        "electron-config": "^1.0.0",
+        "electron-packager": "^12.1.0"
     }
 }
