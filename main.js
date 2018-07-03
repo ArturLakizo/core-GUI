@@ -1,6 +1,6 @@
 //? lock highlighting
 //? windows minim into tray and notification about it
-//? show only when rendered
+
 console.log("App run");
 
 const electron = require("electron");
@@ -12,39 +12,24 @@ const url = require("url");
 const Config = require('electron-config');
 const config = new Config();
 
-const Menu = electron.Menu;
 const Tray = electron.Tray;
 const iconapp = path.join(__dirname, './assets/app/icon-app.png');
 const icontray = path.join(__dirname, './assets/app/icon-tray.png');
 
 let win;
 
+console.log(config.path);
+
 function createMainWindow() {
     new Tray(icontray);
-    win = new BrowserWindow({
-        width: 500,
-        height: 700,
-        resizable: false,
-        icon: iconapp,
-    });
-    win.loadURL(url.format({
-        pathname: path.join(__dirname, './assets/one/index.html'),
-        protocol: 'file',
-        slashes: true
-    }));
-    win.setMenu(null);
-    //win.webContents.openDevTools(); //dev tools
-    win.on('closed', () => {
-        win = null;
-    });
-    //==========================
-    //if (config.get("agreement") == 'false') {
+    if (config.get("agreement") != 'true') {
         first = new BrowserWindow({
             parent: win,
             width: 500,
             height: 300,
             resizable: false,
             frame: false,
+            show: false,
             modal: true
         });
         first.loadURL(url.format({
@@ -52,12 +37,37 @@ function createMainWindow() {
             protocol: 'file',
             slashes: true
         }));
+        first.once('ready-to-show', () => {
+            first.show();
+        });
         first.setMenu(null);
-        //first.webContents.openDevTools(); //dev tools
+        first.webContents.openDevTools(); //dev tools
         first.on('closed', () => {
             first = null;
         });
-    //}
+    }
+    else {
+        win = new BrowserWindow({
+            show: false,
+            width: 500,
+            height: 700,
+            resizable: false,
+            icon: iconapp,
+        });
+        win.loadURL(url.format({
+            pathname: path.join(__dirname, './assets/one/index.html'),
+            protocol: 'file',
+            slashes: true
+        }));
+        win.once('ready-to-show', () => {
+            win.show();
+        });
+        win.setMenu(null);
+        win.webContents.openDevTools(); //dev tools
+        win.on('closed', () => {
+            win = null;
+        });
+    }
 }
 
 app.on('ready', function () {
