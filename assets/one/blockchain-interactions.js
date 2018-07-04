@@ -4,6 +4,7 @@ const neo = require("../../backend/blockchain.js");
 const account = require("../../backend/config.js");
 const util = require("../../backend/util.js");
 const tools = require("../../backend/tools.js");
+
 const Config = require('electron-config');
 const config = new Config();
 
@@ -39,14 +40,12 @@ btn.addEventListener('click', () => {
     }
 });
 
-neon.api.neoscan.getBalance("TestNet", account.address).then((res) => {
+neon.api.neoscan.getBalance("TestNet", config.get("address")).then((res) => {
     neo_assets = res.assets["NEO"].balance;
     gas_assets = res.assets["GAS"].balance;
     neo_assets = (Math.floor(neo_assets * 100) / 100);
     gas_assets = (Math.floor(gas_assets * 100) / 100);
     neo_c.innerHTML = neo_assets;
     gas_c.innerHTML = gas_assets;
-    
+
 });
-
-
