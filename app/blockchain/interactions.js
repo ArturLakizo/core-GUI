@@ -2,6 +2,8 @@ var neon = require('@cityofzion/neon-js');
 var Neon = neon.default;
 const util = require("./util.js");
 const account = require("./config.js");
+const Config = require('electron-config');
+const config = new Config();
 
 module.exports = {
 
@@ -69,8 +71,8 @@ module.exports = {
             operation: action,
             args: hexArgs
           }),
-          address: account.address,
-          privateKey: account.wif,
+          address: config.getValue("address"),
+          privateKey: config.getValue("wif"),
           gas: 1
         };
     return Neon.doInvoke(config).then(function(res) {

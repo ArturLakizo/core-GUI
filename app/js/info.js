@@ -8,7 +8,7 @@ const config = new Config();
 const BrowserWindow = require('electron').remote.BrowserWindow;
 const path = require('path');
 const url = require('url');
-const iconapp = path.join(__dirname, '../assets/app/icon-app.png');
+const iconapp = path.join(__dirname, '../icons/icon-app.png');
 
 const shell = require('electron').shell
 
@@ -35,7 +35,7 @@ btn.addEventListener('click', () => {
             icon: iconapp
         });
         win.loadURL(url.format({
-            pathname: path.join(__dirname, '../one/index.html'),
+            pathname: path.join(__dirname, '../html/one.html'),
             protocol: 'file',
             slashes: true
         }));

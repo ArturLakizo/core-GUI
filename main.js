@@ -13,8 +13,8 @@ const Config = require('electron-config');
 const config = new Config();
 
 const Tray = electron.Tray;
-const iconapp = path.join(__dirname, './assets/app/icon-app.png');
-const icontray = path.join(__dirname, './assets/app/icon-tray.png');
+const iconapp = path.join(__dirname, './app/icons/icon-app.png');
+const icontray = path.join(__dirname, './app/icons/icon-tray.png');
 
 let win;
 
@@ -33,7 +33,7 @@ function createMainWindow() {
             modal: true
         });
         first.loadURL(url.format({
-            pathname: path.join(__dirname, './assets/info/index.html'),
+            pathname: path.join(__dirname, './app/html/info.html'),
             protocol: 'file',
             slashes: true
         }));
@@ -55,7 +55,7 @@ function createMainWindow() {
             icon: iconapp,
         });
         win.loadURL(url.format({
-            pathname: path.join(__dirname, './assets/one/index.html'),
+            pathname: path.join(__dirname, './app/html/one.html'),
             protocol: 'file',
             slashes: true
         }));

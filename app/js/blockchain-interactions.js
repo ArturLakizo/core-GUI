@@ -1,9 +1,9 @@
 var neon = require('@cityofzion/neon-js');
 var Neon = neon.default;
-const neo = require("../../backend/blockchain.js");
-const account = require("../../backend/config.js");
-const util = require("../../backend/util.js");
-const tools = require("../../backend/tools.js");
+const neo = require("../blockchain/interactions.js");
+const account = require("../blockchain/config.js");
+const util = require("../blockchain/util.js");
+const tools = require("../blockchain/tools.js");
 
 const Config = require('electron-config');
 const config = new Config();
