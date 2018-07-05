@@ -1,4 +1,3 @@
-//? lock highlighting
 //? windows minim into tray and notification about it
 
 console.log("App run");

@@ -14,3 +14,5 @@ const intervalObj = setInterval(() => {
     let mbFree = ((os.freemem()) / 1048576);
     ram_free.innerHTML = mbFree;
 }, 500);
+
+
