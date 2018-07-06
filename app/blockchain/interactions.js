@@ -16,68 +16,72 @@ module.exports = {
     const script = Neon.create.script(props);
     return neon.rpc.Query.invokeScript(script)
       .execute(account.endpoint)
-      .then(function (res) {
-        if (res.result.stack[0].value != ""){
+      .then((res) => {
+        if (res.result.stack[0].value != "") {
           return util.hex2str(res.result.stack[0].value);
-        }else{
+        } else {
           return -1;
         }
       });
   },
 
-
   getValueByKey: (action, key) => {
     const props = {
-        scriptHash: account.scriptHash,
-        operation: action,
-        args: [util.str2hex(key)]
-      }
+      scriptHash: account.scriptHash,
+      operation: action,
+      args: [util.str2hex(key)]
+    };
     const script = Neon.create.script(props);
     return neon.rpc.Query.invokeScript(script)
       .execute(account.endpoint)
-      .then(function (res) {
+      .then((res) => {
         return util.hex2str(res.result.stack[0].value);
       });
   },
 
-  testInvokeContract: (action, args) =>  {
+  testInvokeContract: (action, args) => {
     let hexArgs = [];
-    args.forEach(function (arg) {
-      hexArgs.push(util.str2hex(arg))
+    args.forEach((arg) => {
+      hexArgs.push(util.str2hex(arg));
     });
     const props = {
-        scriptHash: account.scriptHash,
-        operation: action,
-        args: hexArgs
-      };
+      scriptHash: account.scriptHash,
+      operation: action,
+      args: hexArgs
+    };
     const script = Neon.create.script(props);
     return neon.rpc.Query.invokeScript(script)
       .execute(account.endpoint)
-      .then(function(res) {
+      .then((res) => {
         return res.result.stack[0].value;
       });
   },
 
-  //TODO make pre-invoke test invokeScript
   invokeContract: (action, args) => {
     let hexArgs = [];
-    args.forEach(function (arg) {
-      hexArgs.push(util.str2hex(arg))
+    args.forEach((arg) => {
+      hexArgs.push(util.str2hex(arg));
     });
     const config = {
-          net: account.net,
-          script: Neon.create.script({
-            scriptHash: account.scriptHash,
-            operation: action,
-            args: hexArgs
-          }),
-          address: config.getValue("address"),
-          privateKey: config.getValue("wif"),
-          gas: 1
-        };
-    return Neon.doInvoke(config).then(function(res) {
-      return res.response.result;
-    });
+      net: account.net,
+      script: Neon.create.script({
+        scriptHash: account.scriptHash,
+        operation: action,
+        args: hexArgs
+      }),
+      address: account.address,
+      privateKey: account.wif,
+      gas: 1
+    };
+    return neon.rpc.Query.invokeScript(config.script)
+      .execute(account.endpoint)
+      .then((res) => {
+        if (res.result.state == "HALT, BREAK") {
+          return Neon.doInvoke(config).then((res) => {
+            return res.response.result;
+          })
+        }
+      });
   }
 
 };

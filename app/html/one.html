@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/one-styles.css">
 </head>
 <body>
+    <div class="titlebar"></div>
     <h1>One</h1>
     <p>TestNet</p>
     <p>NEO:</p><p id="neo_assets">0</p>
@@ -19,6 +20,9 @@
     <button id="runBtn">Run</button>
     <p id="status">Ready for search</p>
     <script>
+        var drag = require('electron-drag');
+        var clear = drag('#titlebar');
+        require("../js/visual.js");
         require("../js/hardware-interactions.js");
         require("../js/blockchain-interactions.js");
     </script>

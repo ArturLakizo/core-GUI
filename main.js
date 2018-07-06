@@ -51,6 +51,7 @@ function createMainWindow() {
             width: 500,
             height: 700,
             resizable: false,
+            frame: false,
             icon: iconapp,
         });
         win.loadURL(url.format({
@@ -69,7 +70,7 @@ function createMainWindow() {
     }
 }
 
-app.on('ready', function () {
+app.on('ready', () => {
     createMainWindow();
 });
 

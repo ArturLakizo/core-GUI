@@ -17,6 +17,9 @@ let working = false;
 let neo_assets = 0;
 let gas_assets = 0;
 
+let cores = 1; // cores picked
+let ram = 2; // ram picked
+
 btn.addEventListener('click', () => {
     if (!working) {
         const address = config.get("address");

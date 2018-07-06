@@ -2,3 +2,7 @@ body {
     user-select: none;
     cursor: default;
 }
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

@@ -1,3 +1,17 @@
+body{
+    background-color: rgb(39, 43, 48);
+    margin: 0;
+    color: rgb(200, 200, 200);
+}
 h1{
-    color: orange;
+    color: orange;    
+}
+.titlebar {
+    -webkit-app-region: drag;
+    height: 30px;
+    background-color:rgb(58, 63, 68);
+    color: aliceblue;
+  }
+.titlebar-button {
+    -webkit-app-region: no-drag;
 }
