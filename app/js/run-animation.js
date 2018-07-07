@@ -67,7 +67,9 @@ function render(a) {
     }
     scene.rotation.x = a * 0.0003;
     if (running) {
-        mouseJump.x += 0.001;
+        if (mouseJump.x < 0.03){
+            mouseJump.x += 0.001;
+        }
         if (a - prevA > 100) {
             updateColor();
             prevA = a;
