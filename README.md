@@ -9,6 +9,7 @@
 3. `npm i npm electron --save-dev`
 4. `npm i @cityofzion/neon-js`
 5. `npm i --save electron-config`
+6. `npm install systeminformation --save`
 
 ##RUN
 1. `npm start`

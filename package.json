@@ -13,6 +13,7 @@
         "electron-config": "^1.0.0",
         "electron-drag": "^1.2.0",
         "electron-packager": "^12.1.0",
-        "electron-titlebar": "0.0.3"
+        "electron-titlebar": "0.0.3",
+        "systeminformation": "^3.42.3"
     }
 }
