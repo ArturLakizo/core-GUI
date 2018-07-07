@@ -7,10 +7,11 @@
     <title>Core App</title>
     <link rel="stylesheet" href="../css/app.css">
     <link rel="stylesheet" href="../css/one-styles.css">
+    <script src='../js/ext/three.js'></script>
+    <script src='../js/ext/perlin.js'></script>
 </head>
 <body>
     <div class="titlebar"></div>
-    <h1>One</h1>
     <p>TestNet</p>
     <p>NEO:</p><p id="neo_assets">0</p>
     <p>GAS:</p><p id="gas_assets">0</p>
@@ -18,13 +19,15 @@
     <p>RAM free:</p><p id="ram_free">0</p>
     <p>RAM total:</p><p id="ram_total">0</p>
     <button id="runBtn">Run</button>
+    <canvas id="run-animation"></canvas>
     <p id="status">Ready for search</p>
     <script>
         var drag = require('electron-drag');
         var clear = drag('#titlebar');
-        require("../js/visual.js");
+        require("../js/run-animation.js");
         require("../js/hardware-interactions.js");
         require("../js/blockchain-interactions.js");
     </script>
+    
 </body>
 </html>

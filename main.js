@@ -1,5 +1,4 @@
 //? windows minim into tray and notification about it
-
 console.log("App run");
 
 const electron = require("electron");
@@ -50,7 +49,7 @@ function createMainWindow() {
             show: false,
             width: 500,
             height: 700,
-            resizable: false,
+            resizable: true,
             frame: false,
             icon: iconapp,
         });

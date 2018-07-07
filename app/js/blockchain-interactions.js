@@ -13,7 +13,7 @@ const status = document.getElementById("status");
 const neo_c = document.getElementById("neo_assets");
 const gas_c = document.getElementById("gas_assets");
 
-let working = false;
+let running = false;
 let neo_assets = 0;
 let gas_assets = 0;
 
@@ -21,7 +21,7 @@ let cores = 1; // cores picked
 let ram = 2; // ram picked
 
 btn.addEventListener('click', () => {
-    if (!working) {
+    if (!running) {
         const address = config.get("address");
         status.innerHTML = "looking for a master";
         btn.disabled = true;
@@ -30,16 +30,16 @@ btn.addEventListener('click', () => {
             if (res != "") {
                 btn.innerHTML = "Stop";
                 status.innerHTML = "master found: " + res;
-                working = true;
+                running = true;
             } else {
                 status.innerHTML = "no work now";
-                working = false;
+                running = false;
             }
         });
     } else {
         btn.innerHTML = "Run";
         status.innerHTML = "disconected";
-        working = false;
+        running = false;
     }
 });
 
@@ -50,5 +50,4 @@ neon.api.neoscan.getBalance("TestNet", config.get("address")).then((res) => {
     gas_assets = (Math.floor(gas_assets * 100) / 100);
     neo_c.innerHTML = neo_assets;
     gas_c.innerHTML = gas_assets;
-
 });
