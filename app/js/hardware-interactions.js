@@ -1,33 +1,18 @@
 
+const os = require("os");
+const si = require('systeminformation');
+
 const ram_free = document.getElementById("ram_free");
 const ram_total = document.getElementById("ram_total");
 const cpu_cores = document.getElementById("cpu");
 
-/*
-const os = require("os");
-const mbTotal = ((os.totalmem()) / 1048576);
 const cpuCount = os.cpus().length;
-ram_total.innerHTML = mbTotal;
+const gbTotal = ((os.totalmem()) / 1073741824).toFixed(1);
+
 cpu_cores.innerHTML = cpuCount;
+ram_total.innerHTML = gbTotal;
 
-const intervalObj = setInterval(() => {
-    let mbFree = ((os.freemem()) / 1048576);
-    ram_free.innerHTML = mbFree;
-}, 500);
-*/
-
-const si = require('systeminformation');
 let gbFree = 0;
-si.cpu()
-    .then((data) => {
-        cpu_cores.innerHTML = data.cores;
-    })
-    .catch(error => console.error(error));
-
-
-si.mem().then((data) => {
-    ram_total.innerHTML = (data.total / 1073741824).toFixed(1);
-});
 
 const intervalObj = setInterval(() => {
     si.mem()
@@ -36,4 +21,44 @@ const intervalObj = setInterval(() => {
         })
         .catch(error => console.error(error));
     ram_free.innerHTML = gbFree;
-}, 500);
+}, 1000);
+
+
+var cpuRS = document.createElement("input");
+cpuRS.setAttribute("type", "range");
+cpuRS.setAttribute("min", "1");
+cpuRS.setAttribute("max", cpuCount);
+cpuRS.setAttribute("step", "1");
+cpuRS.setAttribute("value", "1");
+cpuRS.setAttribute("class", "cpuRS");
+
+var cpuRSvalue = document.createElement("p");
+cpuRSvalue.innerHTML = cpuRS.getAttribute("value");
+
+cpuRS.addEventListener("input", () => {
+    cpuRSvalue.innerHTML =+ cpuRS.value;
+});
+
+var ramRS = document.createElement("input");
+ramRS.setAttribute("type", "range");
+ramRS.setAttribute("min", "1");
+ramRS.setAttribute("max", gbTotal);
+ramRS.setAttribute("step", "1");
+ramRS.setAttribute("value", "1");
+ramRS.setAttribute("class", "ramRS");
+
+var ramRSvalue = document.createElement("p");
+ramRSvalue.innerHTML = ramRS.getAttribute("value");
+
+ramRS.addEventListener("input", () => {
+    ramRSvalue.innerHTML =+ ramRS.value;
+});
+
+const cpuRScontainer = document.getElementById("cpu-rangeslider-container");
+cpuRScontainer.appendChild(cpuRS);
+cpuRScontainer.appendChild(cpuRSvalue);
+
+const ramRScontainer = document.getElementById("ram-rangeslider-container");
+ramRScontainer.appendChild(ramRS);
+ramRScontainer.appendChild(ramRSvalue);
+
