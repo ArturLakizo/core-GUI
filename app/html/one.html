@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +11,29 @@
     <script src='../js/ext/three.js'></script>
     <script src='../js/ext/perlin.js'></script>
 </head>
+
 <body>
-    <div class="titlebar"></div>
+    <script>
+        if (require('os').platform() === 'win32') {
+            var titlebar = document.createElement('div');
+            titlebar.classList.add("titlebar");
+            document.body.appendChild(titlebar);
+        }
+    </script>
+    <!--<div class="titlebar"></div> -->
     <p>TestNet</p>
-    <p>NEO:</p><p id="neo_assets">0</p>
-    <p>GAS:</p><p id="gas_assets">0</p>
-    <p>CPU:</p><p id="cpu">0</p>
-    <p>RAM free:</p><p id="ram_free">0</p>
-    <p>RAM total:</p><p id="ram_total">0</p>
+    <p>NEO:</p>
+    <p id="neo_assets">0</p>
+    <p>GAS:</p>
+    <p id="gas_assets">0</p>
+    <p>CPU:</p>
+    <p id="cpu">0</p>
+    <p>RAM free:</p>
+    <p id="ram_free">0</p>
+    <p>RAM total:</p>
+    <p id="ram_total">0</p>
+    <div id="cpu-rangeslider-container"></div>
+    <div id="ram-rangeslider-container"></div>
     <button id="runBtn">Run</button>
     <canvas id="run-animation"></canvas>
     <p id="status">Ready for search</p>
@@ -28,6 +44,7 @@
         require("../js/hardware-interactions.js");
         require("../js/blockchain-interactions.js");
     </script>
-    
+
 </body>
+
 </html>
