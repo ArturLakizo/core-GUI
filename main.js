@@ -48,7 +48,7 @@ function createMainWindow() {
         win = new BrowserWindow({
             show: false,
             width: 500,
-            height: 700,
+            height: 800,
             resizable: true,
             frame: false,
             icon: iconapp,
