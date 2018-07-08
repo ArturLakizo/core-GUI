@@ -9,9 +9,18 @@
     <link rel="stylesheet" href="../css/one-styles.css">
     <script src='../js/ext/three.js'></script>
     <script src='../js/ext/perlin.js'></script>
+
 </head>
 <body>
-    <div class="titlebar"></div>
+    <div id="title-bar">
+        <div id="title">Elanim high</div>
+        <div id="title-bar-btns">
+             <button id="min-btn">-</button>
+             <button id="max-btn">+</button>
+             <button id="close-btn">x</button>
+        </div>
+
+    </div>
     <p>TestNet</p>
     <p>NEO:</p><p id="neo_assets">0</p>
     <p>GAS:</p><p id="gas_assets">0</p>
@@ -28,6 +37,7 @@
         require("../js/hardware-interactions.js");
         require("../js/blockchain-interactions.js");
     </script>
+    <script src="../js/default.js"></script>
     
 </body>
 </html>
