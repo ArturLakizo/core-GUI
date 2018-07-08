@@ -26,13 +26,13 @@ si.cpu()
 
 
 si.mem().then((data) => {
-    ram_total.innerHTML = data.total / 1073741824;
+    ram_total.innerHTML = (data.total / 1073741824).toFixed(1);
 });
 
 const intervalObj = setInterval(() => {
     si.mem()
         .then((data) => {
-            gbFree = data.free / 1073741824;
+            gbFree = (data.free / 1073741824).toFixed(1);
         })
         .catch(error => console.error(error));
     ram_free.innerHTML = gbFree;
