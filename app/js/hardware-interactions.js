@@ -33,6 +33,7 @@ cpuRS.setAttribute("value", "1");
 cpuRS.setAttribute("class", "cpuRS");
 
 var cpuRSvalue = document.createElement("p");
+cpuRSvalue = setAttribute("id", "cpuvalue");
 cpuRSvalue.innerHTML = cpuRS.getAttribute("value");
 
 cpuRS.addEventListener("input", () => {
@@ -48,6 +49,7 @@ ramRS.setAttribute("value", "1");
 ramRS.setAttribute("class", "ramRS");
 
 var ramRSvalue = document.createElement("p");
+ramRSvalue = setAttribute("id", "ramvalue");
 ramRSvalue.innerHTML = ramRS.getAttribute("value");
 
 ramRS.addEventListener("input", () => {
