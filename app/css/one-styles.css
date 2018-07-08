@@ -6,12 +6,71 @@ body{
 h1{
     color: orange;    
 }
-.titlebar {
+
+
+
+#title-bar {
     -webkit-app-region: drag;
-    height: 30px;
+    height: 31px;
     background-color:rgb(58, 63, 68);
     color: aliceblue;
-  }
-.titlebar-button {
+   }
+   
+   #title {
+
+    position: fixed;
+   
+    top: 0px;
+   
+    left: 50%;
+    transform: translateX(-50%); 
+   
+    line-height: 31px;
+   
+    font-size: 14px;
+   
+   }
+   
+   
+   
+   #title-bar-btns {
+   
     -webkit-app-region: no-drag;
-}
+   
+    position: fixed;
+   
+    top: 1px;
+   
+    right: 0px; 
+   
+   }
+   
+   
+   
+   #title-bar-btns button {
+   
+    height: 30px;
+   
+    width: 30px;
+   
+    background-color: transparent;
+   
+    border: none;
+   
+    color: #F1F1F1;
+   
+    font-size: 16px;
+    outline: none;
+   
+   }
+   
+   
+   
+   #title-bar-btns button:hover {
+   
+    background-color:rgb(134, 195, 255);
+   
+   }
+   #title-bar-btns #close-btn:hover {
+    background-color: rgb(139,0,0);
+   }

@@ -1,19 +1,20 @@
 {
-    "name": "core-GUI",
-    "version": "1.0.0",
-    "main": "main.js",
-    "devDependencies": {
-        "electron": "^2.0.3"
-    },
-    "scripts": {
-        "start": "electron ."
-    },
-    "dependencies": {
-        "@cityofzion/neon-js": "^3.9.1",
-        "electron-config": "^1.0.0",
-        "electron-drag": "^1.2.0",
-        "electron-packager": "^12.1.0",
-        "electron-titlebar": "0.0.3",
-        "systeminformation": "^3.42.3"
-    }
+  "name": "core-GUI",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron": "^2.0.4",
+    "npm": "^6.1.0"
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "@cityofzion/neon-js": "^3.9.1",
+    "electron-config": "^1.0.0",
+    "electron-drag": "^1.2.0",
+    "electron-packager": "^12.1.0",
+    "electron-titlebar": "0.0.3",
+    "systeminformation": "^3.42.3"
+  }
 }
