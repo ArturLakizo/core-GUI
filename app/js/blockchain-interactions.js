@@ -13,18 +13,24 @@ const status = document.getElementById("status");
 const neo_c = document.getElementById("neo_assets");
 const gas_c = document.getElementById("gas_assets");
 
+const coresid = document.getElementById("cpuvalue");
+const ramid = document.getElementById("ramvalue");
+
 let running = false;
 let neo_assets = 0;
 let gas_assets = 0;
 
-let cores = 1; // cores picked
-let ram = 2; // ram picked
+let cores = 0; 
+let ram = 0; 
 
 btn.addEventListener('click', () => {
     if (!running) {
         const address = config.get("address");
         status.innerHTML = "looking for a master";
         btn.disabled = true;
+        cores = coresid.value;
+        ram = ramid.value;
+        console.log("Core running | cores: " + cores + " ram: " + ram);
         neo.getValueByKey("readtask", address).then((res) => {
             btn.disabled = false;
             if (res != "") {

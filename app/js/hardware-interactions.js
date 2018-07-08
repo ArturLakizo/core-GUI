@@ -31,15 +31,15 @@ cpuRS.setAttribute("max", cpuCount);
 cpuRS.setAttribute("step", "1");
 cpuRS.setAttribute("value", "1");
 cpuRS.setAttribute("class", "cpuRS");
+cpuRS.setAttribute("id", "cpuvalue");
 
 var cpuRSvalue = document.createElement("p");
-cpuRSvalue = setAttribute("id", "cpuvalue");
 cpuRSvalue.innerHTML = cpuRS.getAttribute("value");
 
 cpuRS.addEventListener("input", () => {
     cpuRSvalue.innerHTML =+ cpuRS.value;
 });
-
+/*************************************** */
 var ramRS = document.createElement("input");
 ramRS.setAttribute("type", "range");
 ramRS.setAttribute("min", "1");
@@ -47,15 +47,15 @@ ramRS.setAttribute("max", gbTotal);
 ramRS.setAttribute("step", "1");
 ramRS.setAttribute("value", "1");
 ramRS.setAttribute("class", "ramRS");
+ramRS.setAttribute("id", "ramvalue");
 
 var ramRSvalue = document.createElement("p");
-ramRSvalue = setAttribute("id", "ramvalue");
 ramRSvalue.innerHTML = ramRS.getAttribute("value");
 
 ramRS.addEventListener("input", () => {
     ramRSvalue.innerHTML =+ ramRS.value;
 });
-
+/*************************************** */
 const cpuRScontainer = document.getElementById("cpu-rangeslider-container");
 cpuRScontainer.appendChild(cpuRS);
 cpuRScontainer.appendChild(cpuRSvalue);
