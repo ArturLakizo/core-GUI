@@ -1,83 +1,49 @@
-body{
-    background-color: rgb(39, 43, 48);
-    margin: 0;
-    color: rgb(200, 200, 200);
-}
-h1{
-    color: orange;    
-}
-
-
-
 #title-bar {
     -webkit-app-region: drag;
     height: 25px;
-    background-color:rgb(58, 63, 68);
+    background-color: rgb(58, 63, 68);
     color: aliceblue;
-   }
-   #title-bar-icon img{
+}
+
+#title-bar-icon img {
     top: 3px;
     left: 3px;
     position: fixed;
-       width: 20px;
-       height: 20px;
-       -webkit-app-region: no-drag;
-   }
-   #title {
-
-    position: fixed;
-   
-    top: 0px;
-   
-    left: 50%;
-    transform: translateX(-50%); 
-   
-    line-height: 25px;
-   
-    font-size: 14px;
-   
-   }
-   
-   
-   
-   #title-bar-btns {
-   
+    width: 20px;
+    height: 20px;
     -webkit-app-region: no-drag;
-   
+}
+
+#title {
     position: fixed;
-   
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 25px;
+    font-size: 14px;
+}
+
+#title-bar-btns {
+    -webkit-app-region: no-drag;
+    position: fixed;
     top: 1px;
-   
-    right: 0px; 
-   
-   }
-   
-   
-   
-   #title-bar-btns button {
-   
+    right: 0px;
+}
+
+#title-bar-btns button {
     height: 25px;
-   
     width: 30px;
-   
     background-color: transparent;
-   
     border: none;
-   
     color: #F1F1F1;
-   
     font-size: 16px;
     outline: none;
-   
-   }
-   
-   
-   
-   #title-bar-btns button:hover {
-   
-    background-color:#adb5bd;
-   
-   }
-   #title-bar-btns #close-btn:hover {
-    background-color: rgb(139,0,0);
-   }
+}
+
+#title-bar-btns button:hover {
+    background-color: #adb5bd;
+}
+
+#title-bar-btns #close-btn:hover {
+    background-color: rgb(139, 0, 0);
+}
