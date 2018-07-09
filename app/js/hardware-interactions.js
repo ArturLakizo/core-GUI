@@ -7,22 +7,12 @@ const ram_total = document.getElementById("ram_total");
 const cpu_cores = document.getElementById("cpu");
 
 const cpuCount = os.cpus().length;
-const gbTotal = ((os.totalmem()) / 1073741824).toFixed(1);
+const gbTotal = ((os.totalmem()) / 1073741824).toFixed(2);
 
 cpu_cores.innerHTML = cpuCount;
 ram_total.innerHTML = gbTotal;
 
 let gbFree = 0;
-
-const intervalObj = setInterval(() => {
-    si.mem()
-        .then((data) => {
-            gbFree = (data.free / 1073741824).toFixed(1);
-        })
-        .catch(error => console.error(error));
-    ram_free.innerHTML = gbFree;
-}, 1000);
-
 
 var cpuRS = document.createElement("input");
 cpuRS.setAttribute("type", "range");
@@ -63,4 +53,15 @@ cpuRScontainer.appendChild(cpuRSvalue);
 const ramRScontainer = document.getElementById("ram-rangeslider-container");
 ramRScontainer.appendChild(ramRS);
 ramRScontainer.appendChild(ramRSvalue);
+
+const intervalObj = setInterval(() => {
+    si.mem()
+        .then((data) => {
+            gbFree = (data.free / 1073741824).toFixed(2);
+        })
+        .catch(error => console.error(error));
+    ram_free.innerHTML = gbFree;
+    ramRS.setAttribute("max", gbFree);    
+    ramRSvalue.innerHTML = ramRS.value;
+}, 1000);
 
