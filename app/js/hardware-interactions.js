@@ -61,7 +61,7 @@ const intervalObj = setInterval(() => {
         })
         .catch(error => console.error(error));
     ram_free.innerHTML = gbFree;
-    ramRS.setAttribute("max", gbFree);    
+    ramRS.setAttribute("max", parseFloat(gbFree).toFixed(0));    
     ramRSvalue.innerHTML = ramRS.value;
 }, 1000);
 
