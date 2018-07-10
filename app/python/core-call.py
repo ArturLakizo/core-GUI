@@ -26,7 +26,6 @@ def change_ram():                                                               
 
 def change_core():                                                                            # calling from button2
     edit_core_text = str(Edit_CORE)
-
     core_pattern = 'export SPARK_WORKER_CORES=\\"\d'                                     # patter for regular expression
 
     for i, line in enumerate(fileinput.input(Config_file, inplace=1)):

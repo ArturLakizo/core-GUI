@@ -2,8 +2,10 @@
 const os = require("os");
 const si = require('systeminformation');
 
-const corecall = require("../python/core-call.py");
 const neo = require("../blockchain/interactions.js");
+
+const Config = require('electron-config');
+const config = new Config();
 
 const ram_free = document.getElementById("ram_free");
 const ram_total = document.getElementById("ram_total");
@@ -71,6 +73,7 @@ const intervalObj = setInterval(() => {
 module.exports = {
     corecall: () => {
         //1st Ram 2nd Core 3rd master IP
+        const address = config.get("address");
         neo.getValueByKey("readtask", address).then((res) => {
             if (res !== "") {
                 var spawn = require("child_process").spawn;
