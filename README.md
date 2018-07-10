@@ -11,6 +11,7 @@
 5. `npm i --save electron-config`
 6. `npm i systeminformation --save`
 7. `npm i electron-drag`
+8. 'npm i python-shell'
 
 ##RUN
 1. `npm start`

@@ -4,7 +4,7 @@ import re
 import subprocess
 import shlex
 
-Config_file = '../../conf/spark-env.sh'
+Config_file = './conf/spark-env.sh'
 
 
 Edit_RAM = sys.argv[1]                                                                           # input your RAM Label
@@ -36,7 +36,7 @@ def change():
 
 def start_elanim():
     master_ip = "spark://"+sys.argv[3]
-    subprocess.call(shlex.split('sudo ../../sbin/start-slave.sh '+master_ip))
+    subprocess.call(shlex.split('sudo ./sbin/start-slave.sh '+master_ip))
 
 
 if (str(Edit_RAM) and str(Edit_CORE) and str(sys.argv[3])) != "":
