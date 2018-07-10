@@ -70,7 +70,7 @@ const intervalObj = setInterval(() => {
     ramRSvalue.innerHTML = ramRS.value;
 }, 1000);
 
-const PythonShell = require('python-shell');
+
 
 module.exports = {
     corecall: () => {
@@ -80,20 +80,7 @@ module.exports = {
             if (res !== "") {
                 console.log("We r in corecall");
                 var spawn = require("child_process").spawn;
-                var mycall = spawn('python', ["../python/core-call.py", ramRSvalue, cpuRSvalue, res]);
-
-
-                var options = {
-                      mode: 'text',
-                      scriptPath: 'app/python/',
-                      args: [ramRSvalue, cpuRSvalue, res]
-                    };
-
-                    PythonShell.run('core-call.py', options, function (err, results) {
-                      if (err) throw err;
-                      // results is an array consisting of messages collected during execution
-                      console.log('results: %j', results);
-                    });
+                var mycall = spawn('python', ["app/python/core-call.py", ramRS.value, cpuRS.value, res]);
 
 
             }
