@@ -76,10 +76,10 @@ module.exports = {
         const address = config.get("address");
         neo.getValueByKey("readtask", address).then((res) => {
             if (res !== "") {
+                console.log("We r in corecall");
                 var spawn = require("child_process").spawn;
                 var mycall = spawn('python', ["../python/core-call.py", ramRSvalue, cpuRSvalue, res]);
             }
-
         });
 
 
