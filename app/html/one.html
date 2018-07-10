@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Core App</title>
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/one-styles.css">
+    <script src='../js/ext/three.js'></script>
+    <script src='../js/ext/perlin.js'></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="title-bar">
+        <div id="title-bar-icon"><img src="../icons/icon-tray.png" alt="icon"></div>
+        <div id="title">Elanim high</div>
+        <div id="title-bar-btns">
+             <button id="min-btn"><i class="far fa-window-minimize"></i></button>
+              <button id="close-btn"><i class="fas fa-times"></i></button>
+        </div>
+
+    </div>
+ <!--   <script>
+        if (require('os').platform() === 'win32') {
+            var titlebar = document.createElement('div');
+            titlebar.classList.add("titlebar");
+            document.body.appendChild(titlebar);
+        }
+    </script>
+-->
+    <!--<div class="titlebar"></div> -->
+    <p>TestNet</p>
+    <p>NEO:</p>
+    <p id="neo_assets">0</p>
+    <p>GAS:</p>
+    <p id="gas_assets">0</p>
+    <p>CPU:</p>
+    <p id="cpu">0</p>
+    <p>RAM free:</p>
+    <p id="ram_free">0</p>
+    <p>RAM total:</p>
+    <p id="ram_total">0</p>
+    <div id="cpu-rangeslider-container"></div>
+    <div id="ram-rangeslider-container"></div>
+    <button id="runBtn">Run</button>
+    <canvas id="run-animation"></canvas>
+    <p id="status">Ready for search</p>
+    <script>
+        var drag = require('electron-drag');
+        var clear = drag('#titlebar');
+        require("../js/run-animation.js");
+        require("../js/hardware-interactions.js");
+        require("../js/blockchain-interactions.js");
+    </script>
+    <script src="../js/default.js"></script>
+    
+</body>
+
+</html>
