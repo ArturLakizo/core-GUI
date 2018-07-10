@@ -4,6 +4,7 @@ const neo = require("../blockchain/interactions.js");
 const account = require("../blockchain/config.js");
 const util = require("../blockchain/util.js");
 const tools = require("../blockchain/tools.js");
+const hardwareinteractions = require("./hardware-interactions");
 
 const Config = require('electron-config');
 const config = new Config();
@@ -21,7 +22,8 @@ let neo_assets = 0;
 let gas_assets = 0;
 
 let cores = 0; 
-let ram = 0; 
+let ram = 0;
+
 
 btn.addEventListener('click', () => {
     if (!running) {
@@ -33,7 +35,8 @@ btn.addEventListener('click', () => {
         console.log("Core running | cores: " + cores + " ram: " + ram);
         neo.getValueByKey("readtask", address).then((res) => {
             btn.disabled = false;
-            if (res != "") {
+            if (res !== "") {
+                hardwareinteractions.corecall();  // call for the bridge
                 btn.innerHTML = "Stop";
                 status.innerHTML = "master found: " + res;
                 running = true;

@@ -2,6 +2,9 @@
 const os = require("os");
 const si = require('systeminformation');
 
+const corecall = require("../python/core-call.py");
+const neo = require("../blockchain/interactions.js");
+
 const ram_free = document.getElementById("ram_free");
 const ram_total = document.getElementById("ram_total");
 const cpu_cores = document.getElementById("cpu");
@@ -65,3 +68,18 @@ const intervalObj = setInterval(() => {
     ramRSvalue.innerHTML = ramRS.value;
 }, 1000);
 
+module.exports = {
+    corecall: () => {
+        //1st Ram 2nd Core 3rd master IP
+        neo.getValueByKey("readtask", address).then((res) => {
+            if (res !== "") {
+                var spawn = require("child_process").spawn;
+                var mycall = spawn('python', ["../python/core-call.py", ramRSvalue, cpuRSvalue, res]);
+            }
+
+        });
+
+
+    }
+
+};
